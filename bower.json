@@ -1,0 +1,26 @@
+{
+  "name": "geolocation-html5",
+  "version": "0.0.0",
+  "homepage": "https://github.com/kiide/geolocation-html5",
+  "description": "A example using html, localstorage and geolocation",
+  "main": "index.html",
+  "keywords": [
+    "html5",
+    "geolocation"
+  ],
+  "authors": [
+    "kiide"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.2.0",
+    "geocomplete": "https://github.com/ubilabs/geocomplete.git#~1.5.1"
+  }
+}

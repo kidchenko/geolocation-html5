@@ -1,0 +1,63 @@
+ <!DOCTYPE HTML>
+ <html lang="pt-Br">
+ <head>
+ 	<meta charset="utf-8" />
+ 	<link rel="stylesheet" type="text/css" href="bower_components\bootstrap\dist\css\bootstrap.min.css">
+ 	<style type="text/css">
+ 	#map {
+ 		width: 640px;
+ 		height: 400px;
+ 	}
+ 	</style>
+ </head>
+ <body>
+ 	<div class="container">
+ 		<nav>
+ 			<ul class="nav nav-tabs" role="tablist">
+ 				<li class="active"><a href="#home" role="tab" data-toggle="tab">Novo Amigo</a></li>
+ 				<li><a href="#profile" role="tab" data-toggle="tab">Meus amigos</a></li>
+ 			</ul>
+
+ 			<!-- Tab panes -->
+ 			<div class="tab-content">
+ 				<div class="tab-pane active" id="home"><section>
+ 					<form>
+ 						<div class="form-group">
+ 							<label>Nome:</label>
+ 							<input type="text" class="form-control" placeholder="Digite o nome..." required autofocus />
+ 						</div>
+ 						<div class="form-group">
+ 							<label>E-mail:</label>
+ 							<input type="email" class="form-control" placeholder="Digite o e-mail..." />
+ 						</div>
+ 						<div class="form-group">
+ 							<label>Telefone:</label>
+ 							<input type="tel" class="form-control" placeholder="Digite o telefone..." />
+ 						</div>
+ 						<div class="form-group">
+ 							<label>Endereço:</label>
+ 							<input type="text" id="endereco" class="form-control" placeholder="Digite o endereço..."  />
+	 						<div id="map"></div>
+ 						</div>
+ 						<input type="submit" value="Cadastrar" class="btn btn-success " />
+ 						<input type="reset"  value="Limpar" class="btn btn-danger" />
+ 					</form>
+ 				</section></div>
+ 				<div class="tab-pane" id="profile">...</div>
+ 			</div>
+ 		</nav>
+
+ 	</div>
+ 	<script src="bower_components\jquery\dist\jquery.min.js"></script>
+ 	<script src="bower_components\bootstrap\dist\js\bootstrap.min.js"></script>
+ 	<script src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
+ 	<script src="bower_components\geocomplete\jquery.geocomplete.min.js"></script>
+ 	<script type="text/javascript">
+ 		$(document).ready(function () {
+ 			$('#endereco').geocomplete({
+ 				map: '#map'
+ 			});
+ 		});
+ 	</script>
+ </body>
+ </html>
