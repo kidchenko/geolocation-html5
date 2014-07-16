@@ -120,6 +120,12 @@ DataBase.prototype.add = function (friend, callback) {
 ```
 Como temos a limitação do `localStorage` trabalhar apenas com `strings`, uso os métodos `JSON.stringify` e `JSON.parse` para desserializar e serializar `strings` para `JSON`.
 
+##Agradecimentos
+
+[LGroup] (http://www.lgroup.com.br/)
+
+.NET Coders
+
 
 ##Dúvidas? 
 
