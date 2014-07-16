@@ -2,6 +2,11 @@
 
 > Projeto de exemplo da palestra do .NET Coders no dia 11/05/2014 usando a tag audio, Geolocation API, Google Maps e Local Storage
 
+##Demo
+
+[demo] (http://kiide.github.io/geolocation-html5/)
+
+
 ##Conceitos
 
 - HTML5 http://pt.wikipedia.org/wiki/HTML5, http://tableless.com.br/html5/ 
@@ -48,9 +53,9 @@ Todo projeto é desenvolvido usando bootstrap e pequenas modificações em css.
 
 ####Máscara
 
-Para a máscara do campo telefone eu utilizo o plugin `maskedinput`, dentro de `app.js` temos o método loadMask, que é responsável por adicionar a máscara
+Para a máscara do campo telefone eu utilizo o plugin `maskedinput`, dentro de `app.js` temos o método `loadMask`, que é responsável por adicionar a máscara.
 
-```js
+```javacript
 loadMask: function () {
 	this.$telephone.mask('(99) 9999-9999');
 },
@@ -92,11 +97,11 @@ checkSupportToGeolocation: function () {
 
 ####LocalStorage
 
-Toda manipualção do localStorage é feita pelo arquivo database.js, onde temos a classe DataBase que possui os métodos add que adicionar um objeto no localStorage e o método findAll que retorna todos os objetos do localStorage.
+Toda manipualção do `localStorage` é feita pelo arquivo `database.js`, onde temos a classe `DataBase` que possui os métodos `add` que adicionar um objeto no `localStorage` e o método `findAll` que retorna todos os objetos do `localStorage`.
 
 ```js
 DataBase.prototype.findAll = function (callback) {
-		// check if callback exists, if no exists create a empty function
+	// check if callback exists, if no exists create a empty function
   callback = callback || function () {};
 	var data = JSON.parse(localStorage[this._STORAGE_ID]);
 	callback.call(this, data.friends);
@@ -113,7 +118,7 @@ DataBase.prototype.add = function (friend, callback) {
 	callback.call(this);
 };
 ```
-Como temos a limitação do localStorage trabalhar apenas com strings, usamos os métodos JSON.stringify e JSON.parse para desserializar e serializar strings para JSON.
+Como temos a limitação do `localStorage` trabalhar apenas com `strings`, uso os métodos `JSON.stringify` e `JSON.parse` para desserializar e serializar `strings` para `JSON`.
 
 
 ##Dúvidas? 
