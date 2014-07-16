@@ -32,9 +32,24 @@ $(document).ready(function () {
 			var $map = this.$map;
 			// create a map using geocomplete
 			// see http://ubilabs.github.io/geocomplete/
-			this.$address.geocomplete({
-				map: $map
+			var map = this.$address.geocomplete({
+				map: $map,
 			});
+
+			this.$telephone.mask('(99) 9999-9999');
+			
+			this.getCurrentPosition(function (position) {
+				map.setLocation([position.coords.latitude, position.coords.longitude]);
+			});
+		},
+		getCurrentPosition: function(callback) {
+			if (Modernizr.geolocation) {
+				var positionError = function (error) {
+					console.log(error.message);
+				}
+				var options = { enableHighAccuracy : true} ;
+				navigator.geolocation.getCurrentPosition(callback, positionError, options);
+			}
 		},
 		addFriend: function(e) {
 			e.preventDefault(); // cancel the default event
@@ -71,5 +86,8 @@ $(document).ready(function () {
 			alert('Amigo adicionado com sucesso!');
 		}
 	};
+
+	
+	
 	App.load();
 });

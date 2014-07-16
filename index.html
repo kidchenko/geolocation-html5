@@ -7,7 +7,7 @@
  	<!-- Bootstrap -->
  	<link rel="stylesheet" type="text/css" href="bower_components\bootstrap\dist\css\bootstrap.min.css">
 
- 	<!-- FOR IE 8 -->
+ 	<!-- POLYFILL FOR IE 8  -->
  	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -15,6 +15,9 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
  	<link rel="stylesheet" type="text/css" href="css/app.css">
+ 	<!-- For best performance, you should have Modernizr after your
+ 	 stylesheet -->
+ 	<script src="bower_components\modernizr\modernizr.js"></script>
  	<title>Friends List</title>
  </head>
  <body>
@@ -34,19 +37,31 @@
  				<form>
  					<div class="form-group">
  						<label>Nome:</label>
- 						<input type="text" class="form-control" id="name" placeholder="Digite o nome..."   required autofocus />
+ 						<div class="input-group">
+ 							<span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+ 							<input type="text" class="form-control" id="name" placeholder="Digite o nome..." maxlength="50" required autofocus />
+ 						</div>
  					</div>
  					<div class="form-group">
  						<label>E-mail:</label>
- 						<input type="email" class="form-control" id="email" placeholder="Digite o e-mail..." />
+ 						<div class="input-group">
+ 							<span class="input-group-addon">@</span>
+	 						<input type="email" class="form-control" id="email" placeholder="Digite o e-mail..." maxlength="50" />
+ 						</div>
  					</div>
  					<div class="form-group">
  						<label>Telefone:</label>
- 						<input type="tel" class="form-control" id="telephone" placeholder="Digite o telefone..." />
+ 						<div class="input-group">
+ 							<span class="input-group-addon"><span class="glyphicon glyphicon-earphone"></span></span>
+ 							<input type="tel" class="form-control" id="telephone" placeholder="Digite o telefone..." />
+ 						</div>
  					</div>
  					<div class="form-group">
  						<label>Endereço:</label>
- 						<input type="text" class="form-control" id="address" placeholder="Digite o endereço..."  />
+ 						<div class="input-group">
+ 							<span class="input-group-addon"><span class="glyphicon glyphicon-road"></span></span>
+ 							<input type="text" class="form-control" id="address" placeholder="Digite o endereço..."  />
+ 						</div>
  						<div id="map"></div>
  					</div>
  					<input type="reset"  value="Limpar" class="btn btn-default" />
@@ -84,7 +99,8 @@
  	<script src="bower_components\jquery\dist\jquery.min.js"></script>
  	<script src="bower_components\bootstrap\dist\js\bootstrap.min.js"></script>
  	<script src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
- 	<script src="bower_components\geocomplete\jquery.geocomplete.min.js"></script>
+ 	<script src="bower_components\jquery-geocomplete\jquery.geocomplete.min.js"></script>
+ 	<script src="bower_components\jquery-maskedinput\dist\jquery.maskedinput.min.js"></script>
  	<script src="js/database.js"></script>
  	<script src="js/app.js"></script>
 	 	<!-- SOCIAL BUTTONS -->
