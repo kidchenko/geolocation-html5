@@ -39,7 +39,7 @@ $(document).ready(function () {
 			this.$telephone.mask('(99) 9999-9999');
 			
 			this.getCurrentPosition(function (position) {
-				map.setLocation([position.coords.latitude, position.coords.longitude]);
+				map.geocomplete('position', [position.coords.latitude, position.coords.longitude])
 			});
 		},
 		getCurrentPosition: function(callback) {
