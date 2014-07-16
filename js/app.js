@@ -69,6 +69,7 @@ $(document).ready(function () {
 			};
 			// add
 			this.dataBase.add(friend, this.showSucessMessage);
+			this.clearForm();
 		},
 		showAllFriends: function () {
 			var $tbody = this.$friendsTable.find('tbody');
@@ -86,6 +87,9 @@ $(document).ready(function () {
 		},
 		showSucessMessage: function () {
 			alert('Amigo adicionado com sucesso!');
+		},
+		clearForm: function () {
+			this.$form.find('div.form-group input').val('');
 		}
 	};
 	App.load();
