@@ -24,7 +24,7 @@ $(document).ready(function () {
 			this.$map = $('#map');
 			this.$form = $('form');
 			this.$friendsTab = $('nav ul li:eq(1)');
-			this.$friendsTable = $('table');
+			this.$friendsTable = $('table.table');
 		},
 		// add all events
 		addEvents : function() {
