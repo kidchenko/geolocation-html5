@@ -37,10 +37,11 @@ $(document).ready(function () {
 			this.$telephone.mask('(99) 9999-9999');
 		},
 		loadMap: function (position) {
+			position = position || {};
 			var $map = this.$map;
 			var mapOptions = { map: $map }; 
 			if (position.coords) { 
-				mapOptions.position = [position.coords.latitude, position.coords.longitude];
+				mapOptions.location = [position.coords.latitude, position.coords.longitude];
 			}
 			// create a map using geocomplete
 			// see http://ubilabs.github.io/geocomplete/
