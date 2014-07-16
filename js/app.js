@@ -87,8 +87,5 @@ $(document).ready(function () {
 			alert('Amigo adicionado com sucesso!');
 		}
 	};
-
-	
-	
 	App.load();
 });
