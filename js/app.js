@@ -8,7 +8,12 @@ $(document).ready(function () {
 			this.dataBase = new window.app.DataBase();
 			this.loadElements();
 			this.addEvents();
-			this.loadPlugins();
+			this.loadMask();
+			if (this.checkSupportToGeolocation()) {
+				this.getCurrentPosition(this.loadMap.bind(this));
+			} else {
+				this.loadMap();
+			}
 		},
 		// get all elements by jquery
 		loadElements : function() {
@@ -28,28 +33,24 @@ $(document).ready(function () {
 			this.$form.on('submit', this.addFriend.bind(this));
 			this.$friendsTab.on('show.bs.tab', this.showAllFriends.bind(this));
 		},
-		loadPlugins: function () {
+		loadMask: function () {
+			this.$telephone.mask('(99) 9999-9999');
+		},
+		loadMap: function (position) {
 			var $map = this.$map;
+			var mapOptions = { map: $map }; 
+			if (position.coords) { 
+				mapOptions.position = [position.coords.latitude, position.coords.longitude];
+			}
 			// create a map using geocomplete
 			// see http://ubilabs.github.io/geocomplete/
-			var map = this.$address.geocomplete({
-				map: $map,
-			});
-
-			this.$telephone.mask('(99) 9999-9999');
-			
-			this.getCurrentPosition(function (position) {
-				map.geocomplete('position', [position.coords.latitude, position.coords.longitude])
-			});
+			this.$address.geocomplete(mapOptions);
+		},
+		checkSupportToGeolocation: function () {
+			return Modernizr.geolocation;
 		},
 		getCurrentPosition: function(callback) {
-			if (Modernizr.geolocation) {
-				var positionError = function (error) {
-					console.log(error.message);
-				}
-				var options = { enableHighAccuracy : true} ;
-				navigator.geolocation.getCurrentPosition(callback, positionError, options);
-			}
+			navigator.geolocation.getCurrentPosition(callback, callback);
 		},
 		addFriend: function(e) {
 			e.preventDefault(); // cancel the default event
